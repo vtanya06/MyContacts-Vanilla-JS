@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css" 
+    integrity="sha512-17AHGe9uFHHt+QaRYieK7bTdMMHBMi8PeWG99Mf/xEcfBLDCn0Gze8Xcx1KoSZxDnv+KnCC+os/vuQ7jrF/nkw==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>MY CONTACTS</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="center-align">MY CONTACTS</h1>
+        <input type="text" id="input" placeholder="Search...">
+        <ul id="cnames" class="collection with-header">
+            <li class="collection-header">
+                <h4>A</h4>
+            </li>
+            <li class="collection-item">
+                <a href="#">ABC</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">ANDREW</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">ASTON</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">AWE</a>
+            </li>
+            <li class="collection-header">
+                <h4>B</h4>
+            </li>
+            <li class="collection-item">
+                <a href="#">BAM</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">BEW</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">BSTON</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">BWE</a>
+            </li>
+        </ul>
+    </div>
+    <script>
+        //get input from search box
+        let input = document.getElementById('input');
+        //add event listener
+        input.addEventListener('keyup', filterSearch);
+        function filterSearch(){
+            //get input value
+            let val = document.getElementById('input').value.toUpperCase();
+            //get ul cnames
+            let cnames = document.getElementById('cnames');
+            //get list items 
+            let li = cnames.querySelectorAll('li.collection-item');
+            //loop through li created above
+            for(let i =0; i<li.length; i++){
+                let a = li[i].getElementsByTagName('a')[0];
+                //if match successful
+                if(a.innerHTML.toUpperCase().indexOf(val)>-1)
+                {
+                    li[i].style.display='';
+                }
+                else{
+                    li[i].style.display='none';
+                }
+            }
+        }
+    </script>
+</body>
+</html>
